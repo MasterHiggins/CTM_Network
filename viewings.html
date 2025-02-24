@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris' Taskmaster Set 1 Collection</title>
+    <link rel="icon" href="assets/Portrait.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="content">
+    <div id="content-container">
+        <img id="content-image" src="assets/Set1.png">
+    </div>
+    <div class="selection-options">
+        <select name="viewings" id="viewing" class="dropdown-selection">
+            <option value="0">Chris' Taskmaster 1</option>
+            <option value="1">Chris' Taskmaster 2</option>
+            <option value="2">Chris' Taskmaster 3</option>
+            <option value="3">Chris' Taskmaster Champion of Champions</option>
+            <option value="4">Chris' Taskmaster All Stars: Ultimate</option>
+        </select>
+        <a href="navigation.html">
+            <button class="navigation-button">
+                Back
+            </button>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('viewing').addEventListener('change', function() {
+            const iframes = [
+                '<iframe src="https://docs.google.com/presentation/d/1DeuXeea_QV5lmNZQj3Uibh90pxM0EIvL_b6VPf34KWo/embed" frameborder="0" width="1000" height="750"></iframe>',
+                '<iframe src="https://docs.google.com/presentation/d/1r-hG5WXIckJSB0_hyBxFF8XVUCZcfM6FPQgE7-tpISw/embed" frameborder="0" width="1000" height="750"></iframe>',
+                '<iframe src="https://docs.google.com/presentation/d/1yQNOYrrkx8YTBUfdVirLQQHJIG4eNKAeIKZxs2Ea45w/embed" frameborder="0" width="1000" height="750"></iframe>',
+                '<iframe src="https://docs.google.com/presentation/d/11VhnFTSjt69sBsesgtawgKLAe2MNjWBRYJ1M8t3YCX4/embed" frameborder="0" width="1000" height="750"></iframe>',
+                '<iframe src="https://docs.google.com/presentation/d/1AK2ryH2x0fWrZjICpQ-fAswzU4iRmnL-U6G5vjikOmE/embed" frameborder="0" width="1000" height="750"></iframe>'
+            ];
+            const selectedIndex = this.value;
+            const contentContainer = document.getElementById('content-container');
+            contentContainer.innerHTML = iframes[selectedIndex];
+        });
+    </script>
+</body>
+
+</html>

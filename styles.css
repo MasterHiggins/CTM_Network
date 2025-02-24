@@ -1,0 +1,86 @@
+body {
+    background-color: black;
+}
+
+.Opening {
+    background-color: yellow;
+}
+
+.fade-in-out {
+    animation: fadeInOut 10s forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    height: 100vh;
+}
+
+.navigation-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.navigation-button {
+    background-color: red;
+    color: gold;
+    height: 90px;
+    width: 400px;
+    border-radius: 10px;
+    border-color: gold;
+    font-size: 25pt;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.navigation-button:hover {
+    background-color: gold;
+    color: red;
+    height: 90px;
+    width: 400px;
+    border-radius: 10px;
+    border-color: red;
+    font-size: 25pt;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    height: 100vh;
+}
+
+.selection-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    height: 20%;
+    gap: 20px;
+}
+
+.dropdown-selection {
+    background-color: red;
+    color: gold;
+    height: 90px;
+    border-radius: 10px;
+    border-color: gold;
+    font-size: 25pt;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+}
