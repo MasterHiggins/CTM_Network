@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris' Taskmaster Set 1 Collection</title>
+    <link rel="icon" href="assets/Portrait.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="content">
+    <div class="selection-options">
+        <select name="viewings" id="viewing" class="dropdown-selection">
+            <option value="0">Sterling</option>
+            <option value="1">Fisher</option>
+            <option value="2">David</option>
+            <option value="3">Down</option>
+            <option value="4">Tyler</option>
+        </select>
+        <a href="navigation.html">
+            <button class="navigation-button">
+                Back
+            </button>
+        </a>
+    </div>
+
+    <div id="stats-container" class="content" style = "text-align: left;">
+        Select Victim
+    </div>
+
+    <script>
+        document.getElementById('viewing').addEventListener('change', function() {
+            const stats = [
+                '<h1>Sterling</h1> Competed in Chris Taskmaster 1, Champion of Champions, All Stars: Ultimate<br><br>Taskmasters Won: 1<br><br>Placements: 1st in Taskmaster 1, 3rd in Champion of Champions, 3rd in All Stars: Ultimate<br><br>Total Points: 171<br><br>Total Task Wins: 23<br><br>Average Points per Task: 2.31081',
+                '<h1>Fisher</h1> Competed in Chris Taskmaster 1, Chris Taskmaster 2, Chris Taskmaster 3, Champion of Champions, All Stars: Ultimate<br><br>Taskmasters Won: 1<br><br>Placements: 3rd in Chris Taskmaster 1, 2, 1st in Chris Taskmaster 3, 3rd in Champion of Champions, and All Stars: Ultimate<br><br>Total Points: 233<br><br>Total Task Wins: 34<br><br>Average Points per Task: 1.97458',
+                '<h1>David</h1> Competed in Chris Taskmaster 1 and 2, Champion of Champions, All Stars: Ultimate<br><br>Taskmasters Won: 1<br><br>Placements: 2nd in Chris Taskmaster 1, 1st in Chris Taskmaster 2, Champion of Champions, and All Stars: Ultimate<br><br>Total Points: 226<br><br>Total Task Wins: 39<br><br>Average Points per Task: 2.40426',
+                '<h1>Down</h1> Competed in Chris Taskmaster 2 and 3, Champion of Champions, All Stars: Ultimate<br><br>Taskmasters Won: 3<br><br>Placements: 1st in Chris Taskmaster 2, 3rd in Chris Taskmaster 3, 1st in Champion of Champions, All Stars: Ultimate<br><br>Total Points: 244<br><br>Total Task Wins: 39<br><br>Average Points per Task: 2.54167',
+                '<h1>Tyler</h1> Competed in Chris Taskmaster 3, All Stars: Ultimate<br><br>Taskmasters Won: 0<br><br>Other Placements: 2nd in Chris Taskmaster 3, 4th in All Stars: Ultimate<br><br>Total Points: 72<br><br>Total Task Wins: 13<br><br>Average Points per Task: 2.18182'
+            ];
+            const selectedIndex = this.value;
+            const statsContainer = document.getElementById('stats-container');
+            statsContainer.innerHTML = stats[selectedIndex];
+        });
+
+        document.getElementById('viewing').dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>

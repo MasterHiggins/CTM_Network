@@ -1,5 +1,14 @@
 body {
     background-color: black;
+    color: yellow;
+    font-size: 30pt;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50pt;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
 }
 
 .Opening {
