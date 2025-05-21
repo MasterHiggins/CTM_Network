@@ -93,3 +93,60 @@ h1 {
     font-family:'Times New Roman', Times, serif;
     text-align: center;
 }
+
+.season-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: black;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.season-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 40px 0;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.season-card {
+    background: #181818;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    width: 380px;
+    min-width: 380px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.season-card:hover {
+    transform: scale(1.05);
+}
+
+.season-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+}
+
+.season-desc {
+    color: #fff;
+    background: #222;
+    width: 100%;
+    text-align: center;
+    font-size: 18pt;
+    padding: 12px 0;
+    border-radius: 0 0 12px 12px;
+    min-height: 48px;
+    line-height: 1.2;
+}
