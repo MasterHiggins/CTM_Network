@@ -14,6 +14,11 @@
     <div id="season-banner" style="width:100%;background:linear-gradient(90deg,#FFD700,#FF6347);color:#222;text-align:center;padding:24px 0;font-size:2rem;font-weight:bold;cursor:pointer;border-radius:12px;margin-bottom:32px;display:flex;align-items:center;justify-content:center;gap:32px;">
     </div>
 
+    <div style="width:100%;display:flex;justify-content:center;margin-bottom:24px;">
+        <input id="season-search" type="text" placeholder="Search seasons, cast, set, or number..." style="width:400px;font-size:1.2rem;padding:10px;border-radius:8px;border:1px solid #ccc;">
+    </div>
+    <div id="search-results" style="position:relative;width:100%;display:flex;justify-content:center;z-index:10;"></div>
+
     <div class="season-row">
         <div class="season-card">
             <a href="seasons/CTM1.html">
@@ -196,7 +201,7 @@
         </div>
 
         <div class="season-card">
-            <a href="seasons/NotAvailable.html">
+            <a href="ExtraSelection.html">
                 <img src="assets/NetworkCover.png">
             </a>
             <div class="season-desc">
@@ -244,6 +249,123 @@
             <span style="font-size:1.2rem;font-weight:normal;">(Click to Watch!)</span>
         `;
         banner.onclick = () => window.location.href = randomSeason.link;
+    </script>
+
+    <script>
+        const allSeasons = [
+            {
+                name: "Chris' Taskmaster 1",
+                set: "1",
+                season: "1",
+                cast: ["Sterling", "Fisher", "David"],
+                img: "assets/CTM1.png",
+                link: "seasons/CTM1.html"
+            },
+            {
+                name: "Chris' Taskmaster 2",
+                set: "1",
+                season: "2",
+                cast: ["Down", "Fisher", "David"],
+                img: "assets/CTM2.png",
+                link: "seasons/CTM2.html"
+            },
+            {
+                name: "Chris' Taskmaster 3",
+                set: "1",
+                season: "3",
+                cast: ["Down", "Fisher", "Tyler"],
+                img: "assets/CTM3.png",
+                link: "seasons/CTM3.html"
+            },
+            {
+                name: "Champion of Champions",
+                set: "1",
+                season: "4",
+                cast: ["Sterling", "Fisher", "David", "Down"],
+                img: "assets/COC.png",
+                link: "seasons/COC1.html"
+            },
+            {
+                name: "All Stars",
+                set: "1",
+                season: "5",
+                cast: ["Sterling", "Fisher", "David", "Down", "Tyler"],
+                img: "assets/AS.png",
+                link: "seasons/AS1.html"
+            }
+        ];
+
+        const searchInput = document.getElementById('season-search');
+        const resultsDiv = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+            resultsDiv.innerHTML = '';
+            if (!query) return;
+
+            const results = allSeasons.filter(season => {
+                return (
+                    season.name.toLowerCase().includes(query) ||
+                    season.season.toLowerCase().includes(query) ||
+                    season.set.toLowerCase().includes(query) ||
+                    season.cast.some(member => member.toLowerCase().includes(query))
+                );
+            });
+
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<div style="background:#222;color:#fff;padding:12px;border-radius:8px;width:400px;text-align:center;">No results found.</div>';
+                return;
+            }
+
+            const dropdown = document.createElement('div');
+            dropdown.style.background = '#222';
+            dropdown.style.borderRadius = '8px';
+            dropdown.style.boxShadow = '0 2px 8px rgba(0,0,0,0.3)';
+            dropdown.style.width = '400px';
+            dropdown.style.marginTop = '0';
+            dropdown.style.maxHeight = '300px';
+            dropdown.style.overflowY = 'auto';
+            dropdown.style.position = 'absolute';
+
+            results.forEach(season => {
+                const item = document.createElement('a');
+                item.href = season.link;
+                item.style.display = 'flex';
+                item.style.alignItems = 'center';
+                item.style.padding = '10px';
+                item.style.color = '#fff';
+                item.style.textDecoration = 'none';
+                item.style.borderBottom = '1px solid #444';
+                item.style.transition = 'background 0.2s';
+                item.onmouseover = () => item.style.background = '#333';
+                item.onmouseout = () => item.style.background = 'transparent';
+
+                const img = document.createElement('img');
+                img.src = season.img;
+                img.alt = season.name;
+                img.style.height = '48px';
+                img.style.width = '48px';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '6px';
+                img.style.marginRight = '16px';
+                img.style.background = '#fff';
+
+                const text = document.createElement('div');
+                text.innerHTML = `<b>${season.name}</b><br><span style="font-size:0.9rem;color:#FFD700;">Set ${season.set}, Season ${season.season}</span>`;
+
+                item.appendChild(img);
+                item.appendChild(text);
+                dropdown.appendChild(item);
+            });
+
+            resultsDiv.appendChild(dropdown);
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
+                resultsDiv.innerHTML = '';
+            }
+        });
     </script>
 </body>
 </html>
